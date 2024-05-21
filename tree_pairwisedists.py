@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import sys
-import utils
 import bz2 
 
 try:
@@ -40,7 +39,7 @@ if __name__ == "__main__":
     tbl = ppatree.tree.total_branch_length() if args['n'] else 1.0
     #tbl = ppatree.tree.total_branch_length()-1.0 if args['n'] else 1.0
 
-    with utils.openw( args['out_file'] ) as out:
+    with openw(args['out_file'], 'w') as out:
         if args['m']:
             keys = sorted(dists.keys())
             out.write( "\t".join(["ID"]+keys) +"\n" )
